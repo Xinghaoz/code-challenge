@@ -1,12 +1,69 @@
 package com.shutterfly.www;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import com.shutterfly.www.event.Event;
 
 public class Customer implements Comparable<Customer> {
-	Date startDate, endDate;
+	String id, lastname, adrCity, adrState;	// The customer's basic information
+	
+	// These variables are used for calculate the LTV of this customer.
+	Date startTime;
 	int totalNumberOfVisit;
 	double totalExpenditures;
 	double averageLifetimeValue;
+	
+	/* 
+	 * Because the instruction says "You are still required to ingest events 
+	 * even if they are not consumed as part of this challenge."  and we 
+	 * don't know what these events will be used for in the future, the
+	 * best way is to categorize and store them into different kind of list.
+	 */
+	List<Event> siteVisitEventList;
+	List<Event> imageUploadEventList;
+	List<Event> orderEventList;
+	
+	public Customer(String id) {
+		this.id = id;
+		
+		this.totalExpenditures = 0.0;
+		this.averageLifetimeValue = 0.0;
+		this.totalNumberOfVisit = 0;
+		this.siteVisitEventList = new ArrayList<>();
+		this.imageUploadEventList = new ArrayList<>();
+		this.orderEventList = new ArrayList<>();
+	}
+	
+	public void setLastname(String name) {
+		this.lastname = name;
+	}
+	
+	public void setAdrCity(String city) {
+		this.adrCity = city;
+	}
+	
+	public void setAdrState(String state) {
+		this.adrState = state;
+	}
+	
+	public void addSiteVisitEvent(Event e) {
+		this.siteVisitEventList.add(e);
+	}
+	
+	public void addImageUploadEvent(Event e) {
+		this.imageUploadEventList.add(e);
+	}
+	
+	public void addOrderEvent(Event e) {
+		this.orderEventList.add(e);
+	}
+	
+	public String getId() {
+		return this.id;
+	}
 	
 	@Override
 	public int compareTo(Customer other) {
@@ -17,5 +74,43 @@ public class Customer implements Comparable<Customer> {
 		} else {
 			return 0;
 		}
+	}
+	
+	public void updateTime(Date newTime) {
+		if (startTime == null || newTime.before(startTime)) {
+			startTime = newTime;
+		} 
+	}
+	
+	public void increaseVisit() {
+		this.totalNumberOfVisit++;
+	}
+	
+	public void updateExpenditure(double e) {
+		this.totalExpenditures += e;
+	}
+	
+	public void updateAverageLifetimeValue(Date endTime) {
+		long timeDiffInMilli = endTime.getTime() - startTime.getTime();
+		int numOfWeeks = (int)(timeDiffInMilli / (1000 * 60 * 60 * 24 * 7)) + 1;
+//		System.out.println("numOfWeeks = " + numOfWeeks);
+		this.averageLifetimeValue = Math.round(100.0 * 
+				(this.totalExpenditures / this.totalNumberOfVisit) *    // Ave Expenditures per visit.
+				((double)this.totalNumberOfVisit / numOfWeeks) * 		// Ave visit per week
+				10 * 52)												// Number of weeks in 10 years.
+				/ 100.0;												// Round to 2 decimals.
+	}
+	
+	@Override
+	public String toString() {
+		return "#######\n" +
+			   "id: " + this.id + "\n" +
+			   "LastName: " + lastname + ", adrCity: " + adrCity + 
+			   ", adrState: " + adrState + "\n" +
+			   "startTime: " + startTime.toString() + "\n" +
+			   "totalNumberOfVisit: " + totalNumberOfVisit + "\n" +
+			   "totalExpenditures: " + totalExpenditures + "\n" + 
+			   "averageLifetimeValue: " + averageLifetimeValue + "\n" +
+			   "#######\n";
 	}
 }
