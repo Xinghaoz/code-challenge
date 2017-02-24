@@ -1,6 +1,12 @@
 package com.shutterfly.www;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,8 +24,14 @@ import org.json.simple.parser.JSONParser;
 import com.shutterfly.www.event.*;
 import com.shutterfly.www.event.Event.*;
 
+/*
+ * This is the main class that contains the main method and it servers 
+ * as a container that stores all the customer information and events.
+ */
 public class CustomerLifetimeValue {
 	private Map<String, Customer> customerMap;
+	private String filename; // Store the filename to generate corresponding 
+							 // name of the output file
 	
 	// The endTime is the latest time we can see from all the events.
 	private Date endTime;
@@ -27,7 +39,15 @@ public class CustomerLifetimeValue {
 	public CustomerLifetimeValue() {
 		this.customerMap = new HashMap<>();
 	}
-	
+		
+	/**
+     * This method updates the data d by the given event.
+     * 
+     * @param e an Event class generate from the JSON input.
+     * @param d a CustomerLifetimeValue instance that hold all the information 
+     * 			about the events and customers.
+   	 *
+     */
 	public static void ingest(Event e, CustomerLifetimeValue d) {
 		String id = e.getCustomerId();
 		Customer customer = null;
@@ -102,39 +122,83 @@ public class CustomerLifetimeValue {
 		}
 	} 
 	
+	/**
+     * This method return the top x customers with the highest Simple 
+     * Lifetime Value from data D.
+     * 
+     * @param x the number of customer with top Lifetime Value that the user 
+     * 			wants to return.
+     * @param d a CustomerLifetimeValue instance that hold all the information 
+     * 			about the events and customers.
+   	 *
+     */
 	public static void topXSimpleLTVCustomers(int x, CustomerLifetimeValue d) {
 		PriorityQueue<Customer> heap = new PriorityQueue<>();
 		
 		for (Map.Entry<String, Customer> entry : d.customerMap.entrySet()) {
-			Customer customer = entry.getValue();
+			Customer customer = entry.getValue();;
 			customer.updateAverageLifetimeValue(d.endTime);
 			heap.offer(customer);
 		}
 		
-		while (!heap.isEmpty() && x > 0) {
-			x--;
-			Customer top = heap.poll();
-			System.out.println(top);
+		File faker = new File("");
+		String outputPath = faker.getAbsoluteFile().getParentFile().getPath() + "/output/";
+//		File outputFile = new File(outputPath + "output_" + d.filename);
+		int index = 1;
+		
+		Writer writer = null;
+		try {
+		    writer = new BufferedWriter(new OutputStreamWriter(
+		          new FileOutputStream(outputPath + "output_" + d.filename), "utf-8"));
+			while (!heap.isEmpty() && x > 0) {
+				x--;
+				Customer top = heap.poll();
+				System.out.println("####### " + index + " #######");
+				System.out.println(top);
+				writer.write("####### " + index + " #######\n");
+				writer.write(top.toString() + "\n");
+				index++;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			   try {writer.close();} catch (Exception e) {e.printStackTrace();}
 		}
 	}
 	
-	public static void main(String[] args) {
-		JSONParser parser = new JSONParser();
+	/**
+     * This method read the file of the given file name in the "input" folder.
+     * 
+     * @param filename the filename of the file in the "input" folder.
+     * 			the file must be in the "input" folder.
+   	 * @return a CustomerLifetimeValue instance that contains all the
+   	 * 			events and all information needs to get the Lifetime 
+   	 * 			value of all users.
+     */
+	public static CustomerLifetimeValue readFile(String filename) {
 		CustomerLifetimeValue data = new CustomerLifetimeValue();
-
+		data.filename = filename;
+		JSONParser parser = new JSONParser();
+		
 		try {
-			Object obj = parser.parse(new FileReader("events.txt"));
+			File faker = new File("");
+			String inputPath = faker.getAbsoluteFile().getParentFile().getPath() + "/input/";
+			Object obj = parser.parse(new FileReader(inputPath + filename));
 			JSONArray events = (JSONArray) obj;
 			Iterator<JSONObject> iterator = events.iterator();			
 			
+			/* 
+			 * Iterate the events to generate a specific Event instance
+			 * for each event in the JSON file.  Then pass this instance
+			 * into the ingest method.
+			 */
 			while (iterator.hasNext()) {
 				JSONObject event = iterator.next();
-				DateFormat format = new SimpleDateFormat("yyyy-mm-dd:HH:mm:ss.SSSS");
+				DateFormat format = new SimpleDateFormat("yyyy-mm-dd'T'HH:mm:ss.SSSS");
 				String typeStr = (String) event.get("type");
 				String verbStr = (String) event.get("verb");
 				String timeStr = (String) event.get("event_time");
 				Date date = format.parse(timeStr);
-				
 				
 				if (typeStr.equals("CUSTOMER")) {
 					String customerId = (String) event.get("key");
@@ -217,7 +281,30 @@ public class CustomerLifetimeValue {
 			e.printStackTrace();
 		}
 		
-		topXSimpleLTVCustomers(10, data);
+		return data;
+	}
+	
+	public static void main(String[] args) {
+		CustomerLifetimeValue test1 = readFile("events.txt");
+		topXSimpleLTVCustomers(10, test1);
+		
+		CustomerLifetimeValue test2 = readFile("testCustomerWithoutExpenditure.txt");
+		topXSimpleLTVCustomers(10, test2);
+		
+		CustomerLifetimeValue test3 = readFile("testTimeSpanExactOneWeek.txt");
+		topXSimpleLTVCustomers(10, test3);
+		
+		CustomerLifetimeValue test4 = readFile("testTimeSpanExactTwoWeeks.txt");
+		topXSimpleLTVCustomers(10, test4);
+		
+		CustomerLifetimeValue test5 = readFile("testTop5OutOf10Customers.txt");
+		topXSimpleLTVCustomers(5, test5);
+		
+		CustomerLifetimeValue test6 = readFile("testTop-1OutOf10Customers.txt");
+		topXSimpleLTVCustomers(-1, test6);
+		
+		CustomerLifetimeValue test7 = readFile("testTop14OutOf10Customers.txt");
+		topXSimpleLTVCustomers(14, test7);
 	}
 
 }

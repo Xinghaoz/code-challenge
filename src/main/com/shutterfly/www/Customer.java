@@ -1,12 +1,17 @@
 package com.shutterfly.www;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.shutterfly.www.event.Event;
 
+/*
+ * This class simulate a customer with specific customer id.  It also stores
+ * the necessary information that needs to calculate the Lifetime value in 
+ * this challenge.  Furthermore, it implements the Comparable interface, which
+ * helps us sort the customer by its average Lifetime Value.
+ */
 public class Customer implements Comparable<Customer> {
 	String id, lastname, adrCity, adrState;	// The customer's basic information
 	
@@ -90,10 +95,25 @@ public class Customer implements Comparable<Customer> {
 		this.totalExpenditures += e;
 	}
 	
+	/**
+     * This function calculates the average Lifetime Value of this customer.
+     * It calculates the Lifetime Value by the following equation:
+     *
+     * LTV = 52(a) * t
+     * 
+     * Where a is the customer's Average Lifetime Value and t is the Average
+     * Customer Lifespan.  Here t is 10 years.
+     * 
+     * The start time is the earliest time we can see for this user, while 
+     * the end time is the latest time we can see for all the events of 
+     * all the users.
+     * 
+     * @param endTime the latest time we can see for all the events of all
+     * 			the users.
+     */
 	public void updateAverageLifetimeValue(Date endTime) {
 		long timeDiffInMilli = endTime.getTime() - startTime.getTime();
 		int numOfWeeks = (int)(timeDiffInMilli / (1000 * 60 * 60 * 24 * 7)) + 1;
-//		System.out.println("numOfWeeks = " + numOfWeeks);
 		this.averageLifetimeValue = Math.round(100.0 * 
 				(this.totalExpenditures / this.totalNumberOfVisit) *    // Ave Expenditures per visit.
 				((double)this.totalNumberOfVisit / numOfWeeks) * 		// Ave visit per week
@@ -103,14 +123,13 @@ public class Customer implements Comparable<Customer> {
 	
 	@Override
 	public String toString() {
-		return "#######\n" +
-			   "id: " + this.id + "\n" +
+		return "id: " + this.id + "\n" +
 			   "LastName: " + lastname + ", adrCity: " + adrCity + 
 			   ", adrState: " + adrState + "\n" +
-			   "startTime: " + startTime.toString() + "\n" +
-			   "totalNumberOfVisit: " + totalNumberOfVisit + "\n" +
-			   "totalExpenditures: " + totalExpenditures + "\n" + 
-			   "averageLifetimeValue: " + averageLifetimeValue + "\n" +
-			   "#######\n";
+			   "Earliest activity time: " + startTime.toString() + "\n" +
+			   "Total number of visit: " + totalNumberOfVisit + "\n" +
+			   "Total expenditures: " + totalExpenditures + "\n" + 
+			   "Average Lifetime Value: " + averageLifetimeValue + "\n" +
+			   "#########################\n";
 	}
 }

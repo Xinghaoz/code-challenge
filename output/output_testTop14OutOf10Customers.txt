@@ -1,0 +1,90 @@
+####### 1 #######
+id: 10
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 10.0
+Average Lifetime Value: 5200.0
+#########################
+
+####### 2 #######
+id: 9
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 9.0
+Average Lifetime Value: 4680.0
+#########################
+
+####### 3 #######
+id: 8
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 8.0
+Average Lifetime Value: 4160.0
+#########################
+
+####### 4 #######
+id: 7
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 7.0
+Average Lifetime Value: 3640.0
+#########################
+
+####### 5 #######
+id: 6
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 6.0
+Average Lifetime Value: 3120.0
+#########################
+
+####### 6 #######
+id: 5
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 5.0
+Average Lifetime Value: 2600.0
+#########################
+
+####### 7 #######
+id: 4
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 4.0
+Average Lifetime Value: 2080.0
+#########################
+
+####### 8 #######
+id: 3
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 3.0
+Average Lifetime Value: 1560.0
+#########################
+
+####### 9 #######
+id: 2
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 2.0
+Average Lifetime Value: 1040.0
+#########################
+
+####### 10 #######
+id: 1
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 1.0
+Average Lifetime Value: 520.0
+#########################
+

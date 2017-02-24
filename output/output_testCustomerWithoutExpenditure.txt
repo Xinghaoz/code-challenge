@@ -1,0 +1,9 @@
+####### 1 #######
+id: 96f55c7d8f42
+LastName: Smith, adrCity: Middletown, adrState: AK
+Earliest activity time: Fri Jan 06 12:45:52 PST 2017
+Total number of visit: 1
+Total expenditures: 0.0
+Average Lifetime Value: 0.0
+#########################
+
