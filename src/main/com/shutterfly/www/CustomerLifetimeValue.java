@@ -123,7 +123,7 @@ public class CustomerLifetimeValue {
 		}
 	}
 
-	/**
+   /**
      * This method return the top x customers with the highest Simple
      * Lifetime Value from data D.
      *
@@ -131,7 +131,7 @@ public class CustomerLifetimeValue {
      * 			wants to return.
      * @param d a CustomerLifetimeValue instance that hold all the information
      * 			about the events and customers.
-   	 *
+     *
      */
 	public static void topXSimpleLTVCustomers(int x, CustomerLifetimeValue d) {
 		PriorityQueue<Customer> heap = new PriorityQueue<>();
