@@ -40,13 +40,13 @@ public class CustomerLifetimeValue {
 		this.customerMap = new HashMap<>();
 	}
 
-	/**
+    /**
      * This method updates the data d by the given event.
      *
      * @param e an Event class generate from the JSON input.
      * @param d a CustomerLifetimeValue instance that hold all the information
      * 			about the events and customers.
-   	 *
+     *
      */
 	public static void ingest(Event e, CustomerLifetimeValue d) {
 		String id = e.getCustomerId();
@@ -83,6 +83,7 @@ public class CustomerLifetimeValue {
 			CustomerEvent event = (CustomerEvent) e;
 
 			/*
+			 * I comment out here purposely
 			// Check whether the customer already exists.
 			if (event.getVerb() == VerbType.NEW) {
 				customer = new Customer(id);
@@ -143,7 +144,6 @@ public class CustomerLifetimeValue {
 
 		File faker = new File("");
 		String outputPath = faker.getAbsoluteFile().getParentFile().getPath() + "/output/";
-//		File outputFile = new File(outputPath + "output_" + d.filename);
 		int index = 1;
 
 		Writer writer = null;
@@ -166,14 +166,14 @@ public class CustomerLifetimeValue {
 		}
 	}
 
-	/**
+    /**
      * This method read the file of the given file name in the "input" folder.
      *
      * @param filename the filename of the file in the "input" folder.
      * 			the file must be in the "input" folder.
-   	 * @return a CustomerLifetimeValue instance that contains all the
-   	 * 			events and all information needs to get the Lifetime
-   	 * 			value of all users.
+     * @return a CustomerLifetimeValue instance that contains all the
+     * 			events and all information needs to get the Lifetime
+     * 			value of all users.
      */
 	public static CustomerLifetimeValue readFile(String filename) {
 		CustomerLifetimeValue data = new CustomerLifetimeValue();
