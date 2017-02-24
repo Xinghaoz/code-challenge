@@ -1,0 +1,216 @@
+####### 1 #######
+id: 15
+LastName: Bob, adrCity: Pittsburgh, adrState: PA
+Earliest activity time: Sat Jan 01 05:27:22 PST 2011
+Total number of visit: 97
+Total expenditures: 2751.679999999999
+Average Lifetime Value: 6717.72
+#########################
+
+####### 2 #######
+id: 4
+LastName: Harry, adrCity: Palo Alto, adrState: CA
+Earliest activity time: Sat Jan 01 11:04:05 PST 2011
+Total number of visit: 111
+Total expenditures: 2587.0499999999997
+Average Lifetime Value: 6315.8
+#########################
+
+####### 3 #######
+id: 21
+LastName: Harry, adrCity: Mountain View, adrState: CA
+Earliest activity time: Sat Jan 01 02:03:32 PST 2011
+Total number of visit: 98
+Total expenditures: 2545.7799999999993
+Average Lifetime Value: 6215.05
+#########################
+
+####### 4 #######
+id: 19
+LastName: Elise, adrCity: Seattle, adrState: WA
+Earliest activity time: Sat Jan 01 16:11:13 PST 2011
+Total number of visit: 98
+Total expenditures: 2532.3700000000003
+Average Lifetime Value: 6182.31
+#########################
+
+####### 5 #######
+id: 2
+LastName: David, adrCity: Palo Alto, adrState: CA
+Earliest activity time: Sat Jan 01 02:15:19 PST 2011
+Total number of visit: 117
+Total expenditures: 2515.190000000001
+Average Lifetime Value: 6140.37
+#########################
+
+####### 6 #######
+id: 24
+LastName: Alice, adrCity: Los Angels, adrState: CA
+Earliest activity time: Sat Jan 01 15:57:10 PST 2011
+Total number of visit: 104
+Total expenditures: 2515.1799999999976
+Average Lifetime Value: 6140.35
+#########################
+
+####### 7 #######
+id: 12
+LastName: Alice, adrCity: Mountain View, adrState: CA
+Earliest activity time: Sat Jan 01 04:03:26 PST 2011
+Total number of visit: 121
+Total expenditures: 2511.989999999999
+Average Lifetime Value: 6132.56
+#########################
+
+####### 8 #######
+id: 8
+LastName: Bob, adrCity: Seattle, adrState: WA
+Earliest activity time: Sat Jan 01 04:56:48 PST 2011
+Total number of visit: 112
+Total expenditures: 2502.6099999999997
+Average Lifetime Value: 6109.66
+#########################
+
+####### 9 #######
+id: 5
+LastName: Bob, adrCity: Seattle, adrState: WA
+Earliest activity time: Sat Jan 01 06:43:44 PST 2011
+Total number of visit: 110
+Total expenditures: 2496.4100000000008
+Average Lifetime Value: 6094.52
+#########################
+
+####### 10 #######
+id: 17
+LastName: David, adrCity: San Francisco, adrState: CA
+Earliest activity time: Sat Jan 01 07:49:11 PST 2011
+Total number of visit: 126
+Total expenditures: 2395.999999999999
+Average Lifetime Value: 5849.39
+#########################
+
+####### 11 #######
+id: 22
+LastName: Harry, adrCity: San Francisco, adrState: CA
+Earliest activity time: Sat Jan 01 05:41:37 PST 2011
+Total number of visit: 98
+Total expenditures: 2348.9600000000023
+Average Lifetime Value: 5734.55
+#########################
+
+####### 12 #######
+id: 13
+LastName: Elise, adrCity: Mountain View, adrState: CA
+Earliest activity time: Sat Jan 01 08:02:55 PST 2011
+Total number of visit: 92
+Total expenditures: 2314.84
+Average Lifetime Value: 5651.25
+#########################
+
+####### 13 #######
+id: 16
+LastName: Elise, adrCity: San Francisco, adrState: CA
+Earliest activity time: Sat Jan 01 08:52:23 PST 2011
+Total number of visit: 120
+Total expenditures: 2258.0400000000004
+Average Lifetime Value: 5512.59
+#########################
+
+####### 14 #######
+id: 18
+LastName: David, adrCity: Mountain View, adrState: CA
+Earliest activity time: Sat Jan 01 06:48:06 PST 2011
+Total number of visit: 84
+Total expenditures: 2229.3600000000006
+Average Lifetime Value: 5442.57
+#########################
+
+####### 15 #######
+id: 7
+LastName: Bob, adrCity: Pittsburgh, adrState: PA
+Earliest activity time: Sun Jan 02 10:19:21 PST 2011
+Total number of visit: 103
+Total expenditures: 2228.2699999999995
+Average Lifetime Value: 5439.91
+#########################
+
+####### 16 #######
+id: 23
+LastName: Bob, adrCity: Los Angels, adrState: CA
+Earliest activity time: Sat Jan 01 06:26:03 PST 2011
+Total number of visit: 109
+Total expenditures: 2195.5700000000006
+Average Lifetime Value: 5360.08
+#########################
+
+####### 17 #######
+id: 14
+LastName: Charlie, adrCity: New York, adrState: NY
+Earliest activity time: Sat Jan 01 03:57:09 PST 2011
+Total number of visit: 95
+Total expenditures: 2165.480000000001
+Average Lifetime Value: 5286.62
+#########################
+
+####### 18 #######
+id: 1
+LastName: Alice, adrCity: Los Angels, adrState: CA
+Earliest activity time: Sat Jan 01 04:50:10 PST 2011
+Total number of visit: 115
+Total expenditures: 2119.6799999999994
+Average Lifetime Value: 5174.81
+#########################
+
+####### 19 #######
+id: 9
+LastName: Bob, adrCity: Los Angels, adrState: CA
+Earliest activity time: Sat Jan 01 03:28:49 PST 2011
+Total number of visit: 120
+Total expenditures: 2112.29
+Average Lifetime Value: 5156.76
+#########################
+
+####### 20 #######
+id: 11
+LastName: Alice, adrCity: Los Angels, adrState: CA
+Earliest activity time: Sat Jan 01 03:50:33 PST 2011
+Total number of visit: 100
+Total expenditures: 2080.41
+Average Lifetime Value: 5078.94
+#########################
+
+####### 21 #######
+id: 20
+LastName: Frank, adrCity: Seattle, adrState: WA
+Earliest activity time: Sat Jan 01 07:14:57 PST 2011
+Total number of visit: 95
+Total expenditures: 2069.25
+Average Lifetime Value: 5051.69
+#########################
+
+####### 22 #######
+id: 6
+LastName: Charlie, adrCity: Seattle, adrState: WA
+Earliest activity time: Sat Jan 01 06:09:22 PST 2011
+Total number of visit: 89
+Total expenditures: 1964.4100000000003
+Average Lifetime Value: 4795.74
+#########################
+
+####### 23 #######
+id: 3
+LastName: Bob, adrCity: Palo Alto, adrState: CA
+Earliest activity time: Sat Jan 01 04:44:27 PST 2011
+Total number of visit: 126
+Total expenditures: 1938.229999999999
+Average Lifetime Value: 4731.83
+#########################
+
+####### 24 #######
+id: 10
+LastName: Harry, adrCity: Seattle, adrState: WA
+Earliest activity time: Sat Jan 01 01:44:31 PST 2011
+Total number of visit: 98
+Total expenditures: 1582.64
+Average Lifetime Value: 3863.72
+#########################
+
